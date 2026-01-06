@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wordle Italiano: Guida Completa per Vincere Ogni Giorno</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Guida completa a Wordle Italiano: regole, strategie, tecniche avanzate, errori comuni e consigli professionali per vincere ogni giorno senza rovinare il divertimento." />
+  <meta name="keywords" content="Wordle Italiano, guida Wordle, strategie Wordle, come vincere Wordle, Wordle in italiano, gioco di parole" />
+  <meta name="author" content="Guida Wordle Italiano" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070A12;
+      --bg2:#0b1430;
+      --panel:rgba(255,255,255,0.06);
+      --panel2:rgba(255,255,255,0.10);
+      --line:rgba(255,255,255,0.12);
+
+      --text:#f5f7ff;
+      --muted:rgba(245,247,255,0.74);
+
+      --brand:#38bdf8;
+      --brand2:#a78bfa;
+      --brand3:#22c55e;
+
+      --shadow:0 26px 90px rgba(0,0,0,0.58);
+      --radius:22px;
+      --max:1260px;
+
+      --font:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:var(--font);
+      background:
+        radial-gradient(1000px 520px at 15% 10%, rgba(56,189,248,0.20), transparent 62%),
+        radial-gradient(1000px 520px at 88% 10%, rgba(167,139,250,0.18), transparent 60%),
+        radial-gradient(1100px 700px at 55% 95%, rgba(34,197,94,0.10), transparent 62%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+      line-height:1.9;
+    }
+
+    /* NAV */
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:999;
+      border-bottom:1px solid rgba(255,255,255,0.10);
+      background:rgba(7,10,18,0.68);
+      backdrop-filter:blur(12px);
+    }
+    .nav-inner{
+      width:min(var(--max),92%);
+      margin:0 auto;
+      padding:16px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      font-size:18px;
+      letter-spacing:-0.4px;
+      white-space:nowrap;
+    }
+    .spark{
+      width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(90deg,var(--brand),var(--brand2));
+      box-shadow:0 0 20px rgba(56,189,248,0.45);
+    }
+    .nav-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .nav-links a{
+      color:rgba(245,247,255,0.86);
+      text-decoration:none;
+      font-weight:800;
+      font-size:14px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.05);
+      transition:0.25s ease;
+    }
+    .nav-links a:hover{
+      background:rgba(255,255,255,0.10);
+      transform:translateY(-1px);
+    }
+
+    /* HERO */
+    .hero{
+      padding:60px 0 20px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(860px 340px at 16% 16%, rgba(56,189,248,0.25), transparent 60%),
+        radial-gradient(860px 340px at 86% 18%, rgba(167,139,250,0.22), transparent 60%);
+      opacity:0.85;
+      pointer-events:none;
+    }
+    .hero-inner{
+      width:min(var(--max),92%);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:22px;
+      align-items:stretch;
+      position:relative;
+    }
+
+    .hero-left{
+      background:linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:var(--radius);
+      padding:34px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-left::after{
+      content:"";
+      position:absolute;
+      right:-90px; top:-90px;
+      width:290px;height:290px;
+      border-radius:76px;
+      background:linear-gradient(145deg, rgba(56,189,248,0.30), rgba(167,139,250,0.22));
+      transform:rotate(14deg);
+      opacity:0.75;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.06);
+      color:var(--muted);
+      font-weight:900;
+      width:fit-content;
+      margin-bottom:14px;
+      position:relative;
+      z-index:2;
+    }
+    .tag i{
+      width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(90deg, var(--brand3), var(--brand2));
+      box-shadow:0 0 20px rgba(34,197,94,0.35);
+      display:inline-block;
+    }
+
+    h1{
+      font-size:clamp(32px, 4.4vw, 56px);
+      line-height:1.08;
+      letter-spacing:-1px;
+      margin-bottom:12px;
+      position:relative;
+      z-index:2;
+    }
+
+    .lead{
+      color:rgba(245,247,255,0.82);
+      font-size:16.8px;
+      max-width:80ch;
+      position:relative;
+      z-index:2;
+    }
+
+    /* Links */
+    .text-link{
+      color:#dbeafe;
+      font-weight:900;
+      text-decoration:underline;
+      text-decoration-thickness:2px;
+      text-underline-offset:4px;
+      transition:0.2s ease;
+    }
+    .text-link:hover{
+      opacity:0.95;
+      text-shadow:0 0 18px rgba(56,189,248,0.25);
+    }
+
+    .hero-right{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .stat{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:18px;
+      padding:14px;
+    }
+    .stat h3{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:0.6px;
+      color:rgba(245,247,255,0.82);
+      margin-bottom:6px;
+      font-weight:900;
+    }
+    .stat p{
+      color:rgba(245,247,255,0.78);
+      font-size:14.6px;
+      line-height:1.7;
+    }
+
+    /* CONTENT */
+    .content{
+      width:min(var(--max),92%);
+      margin:12px auto 70px;
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:22px;
+      align-items:start;
+    }
+
+    .article{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:var(--radius);
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .article h2{
+      margin-top:26px;
+      margin-bottom:10px;
+      font-size:22px;
+      letter-spacing:-0.2px;
+    }
+    .article p{
+      color:rgba(245,247,255,0.86);
+      font-size:16.2px;
+      margin-bottom:14px;
+    }
+
+    /* Table */
+    .table-wrap{
+      margin-top:16px;
+      overflow:auto;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.12);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:880px;
+      background:rgba(255,255,255,0.04);
+    }
+    th,td{
+      padding:16px;
+      border-bottom:1px solid rgba(255,255,255,0.10);
+      text-align:left;
+    }
+    th{
+      background:rgba(255,255,255,0.06);
+      text-transform:uppercase;
+      letter-spacing:0.6px;
+      font-size:12.5px;
+      color:rgba(245,247,255,0.82);
+      font-weight:900;
+    }
+    td{
+      font-weight:600;
+      color:rgba(245,247,255,0.88);
+      font-size:15.6px;
+    }
+    tr:hover td{ background:rgba(255,255,255,0.06); }
+
+    /* Sidebar */
+    .sidebar{
+      position:sticky;
+      top:92px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .side-card{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:18px;
+      padding:16px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.35);
+    }
+    .side-card h3{
+      font-size:16px;
+      margin-bottom:10px;
+      letter-spacing:-0.2px;
+    }
+    .side-card p{
+      color:rgba(245,247,255,0.75);
+      font-size:14px;
+      line-height:1.7;
+    }
+    .pill{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.06);
+      margin:6px 6px 0 0;
+      font-weight:900;
+      font-size:12.5px;
+      color:rgba(245,247,255,0.86);
+    }
+
+    footer{
+      border-top:1px solid rgba(255,255,255,0.10);
+      padding:26px 16px;
+      text-align:center;
+      color:rgba(245,247,255,0.62);
+      background:rgba(7,10,18,0.65);
+    }
+
+    @media(max-width:1050px){
+      .hero-inner{grid-template-columns:1fr}
+      .content{grid-template-columns:1fr}
+      .sidebar{position:relative;top:0}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="logo"><span class="spark"></span> Wordle Italiano</div>
+      <div class="nav-links">
+        <a href="#regole">Regole</a>
+        <a href="#strategie">Strategie</a>
+        <a href="#tabella">Colori</a>
+        <a href="#errori">Errori</a>
+        <a href="#finale">Conclusione</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="hero-left">
+        <div class="tag"><i></i> Guida Premium • Strategie • Tecniche Avanzate</div>
+        <h1>Wordle Italiano: Guida Completa per Vincere Ogni Giorno</h1>
+
+        <!-- ✅ Link richiesto nel paragrafo introduttivo -->
+        <p class="lead">
+          Wordle Italiano è diventato uno dei giochi di parole più popolari per chi ama le sfide rapide ma intelligenti.
+          Se vuoi giocare nella tua lingua e migliorare davvero, prova
+          <a class="text-link" href="https://mywordle.net/wordle-italiano/" target="_blank" rel="noopener">wordle italiano</a>
+          e applica le strategie qui sotto per vincere ogni giorno senza rovinarti il divertimento.
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <div class="stat">
+          <h3>Perché Funziona</h3>
+          <p>Allenamento mentale quotidiano: logica, vocabolario e riconoscimento di pattern.</p>
+        </div>
+        <div class="stat">
+          <h3>Obiettivo</h3>
+          <p>Non indovinare subito: raccogli informazioni, interpreta colori e restringi le opzioni.</p>
+        </div>
+        <div class="stat">
+          <h3>Risultato</h3>
+          <p>Meno tentativi sprecati, più vittorie e progressi reali nel tempo.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="content">
+    <article class="article">
+
+      <p>
+        Molti utenti cercano Wordle Italiano per giocare nella loro lingua, capire le regole e migliorare la performance.
+        Questa guida ti mostra strategie reali, errori comuni e tecniche avanzate per aumentare le possibilità di vincere ogni giorno.
+      </p>
+
+      <h2 id="regole">Come Funziona Wordle Italiano: Regole Spiegate in Modo Semplice</h2>
+      <p>
+        Devi indovinare una parola composta da un numero fisso di lettere (spesso 5) con un massimo di tentativi (di solito 6).
+        Ogni tentativo ti dà un feedback con colori: lettera giusta e posizione giusta, giusta ma posizione sbagliata, oppure assente.
+        Wordle Italiano richiede quindi competenze linguistiche e una mentalità da puzzle solver.
+      </p>
+
+      <h2>Perché Wordle in Italiano è Diverso dalla Versione Inglese</h2>
+      <p>
+        L’italiano ha molte vocali e combinazioni tipiche come “CH”, “GL”, “GN”, “SC”.
+        Inoltre, terminazioni e schemi ricorrenti rendono il gioco più “pattern-based”: riconoscere questi modelli accelera la soluzione.
+      </p>
+
+      <h2 id="strategie">Strategia Base: La Prima Parola Decide Tutto</h2>
+      <p>
+        La prima parola è quasi metà della vittoria. Una scelta strategica ti permette di identificare vocali e consonanti frequenti.
+        Il secondo tentativo deve completare l’analisi con lettere non provate, così dal terzo tentativo hai un quadro molto chiaro.
+      </p>
+
+      <h2 id="tabella">Tabella: Significato dei Colori in Wordle Italiano</h2>
+      <p>
+        Interpretare i colori è il cuore del gioco. Questa tabella ti aiuta a leggere il feedback in modo corretto e immediato.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Colore / Feedback</th>
+              <th>Significato</th>
+              <th>Cosa Fare Subito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Verde</strong></td>
+              <td>Lettera corretta e posizione corretta</td>
+              <td>Mantienila fissa e costruisci intorno</td>
+            </tr>
+            <tr>
+              <td><strong>Giallo</strong></td>
+              <td>Lettera presente ma posizione sbagliata</td>
+              <td>Spostala in un’altra posizione</td>
+            </tr>
+            <tr>
+              <td><strong>Grigio</strong></td>
+              <td>Lettera non presente nella parola</td>
+              <td>Eliminala dalle ipotesi future</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Tecniche Avanzate: Come Ragionano i Giocatori Bravi</h2>
+      <p>
+        I giocatori più forti riducono le possibilità in modo intelligente: ogni parola inserita serve a eliminare ipotesi precise.
+        Pensare per famiglie di parole e terminazioni ti aiuta a restringere rapidamente il campo.
+      </p>
+
+      <h2 id="errori">Lista in Stile Paragrafo: Errori Comuni da Evitare</h2>
+      <p>
+        Molti utenti perdono perché riutilizzano lettere grigie, ignorano lettere gialle, scelgono parole troppo specifiche troppo presto,
+        dimenticano le doppie o si fissano su una soluzione anche quando i colori dimostrano che è sbagliata.
+      </p>
+
+      <h2>Come Migliorare Ogni Giorno Senza Imbrogliare</h2>
+      <p>
+        Wordle Italiano ti allena ogni giorno. Sviluppa una routine: prima parola forte, seconda parola per coprire nuove lettere,
+        poi dal terzo tentativo costruisci con precisione. Ampliare il vocabolario e riconoscere combinazioni tipiche accelera la tua crescita.
+      </p>
+
+      <h2>Wordle Italiano e il Vantaggio della Lingua: Vocali e Pattern</h2>
+      <p>
+        Identificare le vocali entro i primi due tentativi è spesso la chiave. Con tre vocali corrette, la parola diventa quasi visibile.
+        Combina vocali e consonanti comuni per semplificare la partita e ridurre gli errori.
+      </p>
+
+      <h2 id="finale">Conclusione</h2>
+      <p>
+        Wordle Italiano è una palestra mentale: migliora linguaggio, logica e capacità di analisi in pochi minuti al giorno.
+        Con le strategie giuste puoi aumentare le vittorie senza rovinarti il divertimento.
+        La chiave è semplice: usa la prima parola per raccogliere dati, interpreta i colori correttamente e costruisci soluzioni con calma.
+      </p>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="side-card">
+        <h3>Mini Checklist Giornaliera</h3>
+        <p>1ª parola ricca di vocali • 2ª parola per confermare • gialle da riposizionare • grigie da eliminare • attenzione alle doppie.</p>
+        <div>
+          <span class="pill">Vocali</span>
+          <span class="pill">Pattern</span>
+          <span class="pill">Doppie</span>
+          <span class="pill">Logica</span>
+          <span class="pill">Routine</span>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h3>Consiglio Pro</h3>
+        <p>Non cercare la parola “più bella”: cerca quella che elimina più possibilità con un solo tentativo.</p>
+      </div>
+
+      <div class="side-card">
+        <h3>Errore da Evitare</h3>
+        <p>Una lettera gialla è giusta: cambia posizione, non ripetere la stessa struttura.</p>
+      </div>
+    </aside>
+
+  </section>
+
+  <footer>
+    © 2026 • Wordle Italiano • Guida Professionale • UI/UX Premium
+  </footer>
+
+</body>
+</html>
