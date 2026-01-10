@@ -1,530 +1,351 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="google-site-verification" content="gy0YbmRVmf8NXPUDj6PAZB6aOGLvG3SYCZU_ucnC-XQ" />
-  <title>Wordle Italiano: Guida Completa per Vincere Ogni Giorno</title>
+  <title>Wordle Italiano – Refined Word Puzzle Experience for Learning Italian</title>
+  <meta name="description" content="Wordle Italiano is a refined Italian word puzzle experience that combines daily challenges with vocabulary learning, spelling practice, and community sharing." />
 
-  <!-- SEO Meta -->
-  <meta name="description" content="Guida completa a Wordle Italiano: regole, strategie, tecniche avanzate, errori comuni e consigli professionali per vincere ogni giorno senza rovinare il divertimento." />
-  <meta name="keywords" content="Wordle Italiano, guida Wordle, strategie Wordle, come vincere Wordle, Wordle in italiano, gioco di parole" />
-  <meta name="author" content="Guida Wordle Italiano" />
-
-  <!-- Fonts -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#070A12;
-      --bg2:#0b1430;
+      --bg:#0b1020;
       --panel:rgba(255,255,255,0.06);
-      --panel2:rgba(255,255,255,0.10);
-      --line:rgba(255,255,255,0.12);
-
-      --text:#f5f7ff;
-      --muted:rgba(245,247,255,0.74);
-
-      --brand:#38bdf8;
-      --brand2:#a78bfa;
-      --brand3:#22c55e;
-
-      --shadow:0 26px 90px rgba(0,0,0,0.58);
+      --panel2:rgba(255,255,255,0.03);
+      --border:rgba(255,255,255,0.10);
+      --text:#eef2ff;
+      --muted:rgba(238,242,255,0.72);
+      --accent:#22c55e;
+      --accent2:#60a5fa;
+      --shadow:0 18px 60px rgba(0,0,0,0.45);
       --radius:22px;
-      --max:1260px;
-
-      --font:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      --max:1200px;
     }
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
-      font-family:var(--font);
-      background:
-        radial-gradient(1000px 520px at 15% 10%, rgba(56,189,248,0.20), transparent 62%),
-        radial-gradient(1000px 520px at 88% 10%, rgba(167,139,250,0.18), transparent 60%),
-        radial-gradient(1100px 700px at 55% 95%, rgba(34,197,94,0.10), transparent 62%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
       line-height:1.9;
+      background:
+        radial-gradient(1000px 650px at 10% 0%, rgba(34,197,94,0.18), transparent 55%),
+        radial-gradient(1000px 650px at 90% 10%, rgba(96,165,250,0.16), transparent 55%),
+        radial-gradient(900px 700px at 50% 100%, rgba(255,255,255,0.06), transparent 55%),
+        var(--bg);
     }
 
-    /* NAV */
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:999;
-      border-bottom:1px solid rgba(255,255,255,0.10);
-      background:rgba(7,10,18,0.68);
-      backdrop-filter:blur(12px);
-    }
-    .nav-inner{
-      width:min(var(--max),92%);
+    .wrap{
+      width:100%;
+      max-width:var(--max);
       margin:0 auto;
-      padding:16px 0;
+      padding:36px 18px 80px;
+    }
+
+    .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:18px;
+      gap:12px;
+      padding:12px 16px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.04);
+      border-radius:999px;
+      backdrop-filter: blur(10px);
     }
-    .logo{
+    .brand{
       display:flex;
       align-items:center;
       gap:10px;
-      font-weight:900;
-      font-size:18px;
-      letter-spacing:-0.4px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:12px;height:12px;border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 0 4px rgba(34,197,94,0.14);
+    }
+    .meta{
+      font-size:13px;
+      color:var(--muted);
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.03);
       white-space:nowrap;
     }
-    .spark{
-      width:10px;height:10px;border-radius:50%;
-      background:linear-gradient(90deg,var(--brand),var(--brand2));
-      box-shadow:0 0 20px rgba(56,189,248,0.45);
-    }
-    .nav-links{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .nav-links a{
-      color:rgba(245,247,255,0.86);
-      text-decoration:none;
-      font-weight:800;
-      font-size:14px;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.05);
-      transition:0.25s ease;
-    }
-    .nav-links a:hover{
-      background:rgba(255,255,255,0.10);
-      transform:translateY(-1px);
-    }
 
-    /* HERO */
-    .hero{
-      padding:60px 0 20px;
+    .card{
+      margin-top:20px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
     }
-    .hero::before{
+    .card::before{
       content:"";
       position:absolute;
       inset:-2px;
       background:
-        radial-gradient(860px 340px at 16% 16%, rgba(56,189,248,0.25), transparent 60%),
-        radial-gradient(860px 340px at 86% 18%, rgba(167,139,250,0.22), transparent 60%);
-      opacity:0.85;
+        radial-gradient(900px 240px at 20% 0%, rgba(34,197,94,0.20), transparent 60%),
+        radial-gradient(900px 240px at 80% 0%, rgba(96,165,250,0.16), transparent 60%);
       pointer-events:none;
     }
-    .hero-inner{
-      width:min(var(--max),92%);
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:1.2fr 0.8fr;
-      gap:22px;
-      align-items:stretch;
+    .content{
       position:relative;
+      padding:44px 36px;
     }
-
-    .hero-left{
-      background:linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
-      border:1px solid rgba(255,255,255,0.12);
-      border-radius:var(--radius);
-      padding:34px;
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-left::after{
-      content:"";
-      position:absolute;
-      right:-90px; top:-90px;
-      width:290px;height:290px;
-      border-radius:76px;
-      background:linear-gradient(145deg, rgba(56,189,248,0.30), rgba(167,139,250,0.22));
-      transform:rotate(14deg);
-      opacity:0.75;
-    }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.12);
-      background:rgba(255,255,255,0.06);
-      color:var(--muted);
-      font-weight:900;
-      width:fit-content;
-      margin-bottom:14px;
-      position:relative;
-      z-index:2;
-    }
-    .tag i{
-      width:10px;height:10px;border-radius:50%;
-      background:linear-gradient(90deg, var(--brand3), var(--brand2));
-      box-shadow:0 0 20px rgba(34,197,94,0.35);
-      display:inline-block;
+    @media (max-width:640px){
+      .content{ padding:28px 18px; }
     }
 
     h1{
-      font-size:clamp(32px, 4.4vw, 56px);
-      line-height:1.08;
-      letter-spacing:-1px;
-      margin-bottom:12px;
-      position:relative;
-      z-index:2;
+      margin:0 0 18px;
+      font-size:clamp(28px,3.8vw,46px);
+      line-height:1.15;
+      letter-spacing:-0.6px;
     }
-
-    .lead{
-      color:rgba(245,247,255,0.82);
-      font-size:16.8px;
-      max-width:80ch;
-      position:relative;
-      z-index:2;
-    }
-
-    /* Links */
-    .text-link{
-      color:#dbeafe;
-      font-weight:900;
-      text-decoration:underline;
-      text-decoration-thickness:2px;
-      text-underline-offset:4px;
-      transition:0.2s ease;
-    }
-    .text-link:hover{
-      opacity:0.95;
-      text-shadow:0 0 18px rgba(56,189,248,0.25);
-    }
-
-    .hero-right{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.12);
-      border-radius:var(--radius);
-      padding:26px;
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .stat{
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.12);
-      border-radius:18px;
-      padding:14px;
-    }
-    .stat h3{
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:0.6px;
-      color:rgba(245,247,255,0.82);
-      margin-bottom:6px;
-      font-weight:900;
-    }
-    .stat p{
-      color:rgba(245,247,255,0.78);
-      font-size:14.6px;
-      line-height:1.7;
-    }
-
-    /* CONTENT */
-    .content{
-      width:min(var(--max),92%);
-      margin:12px auto 70px;
-      display:grid;
-      grid-template-columns:1fr 380px;
-      gap:22px;
-      align-items:start;
-    }
-
-    .article{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.12);
-      border-radius:var(--radius);
-      padding:30px;
-      box-shadow:var(--shadow);
-    }
-    .article h2{
-      margin-top:26px;
-      margin-bottom:10px;
+    h2{
+      margin:40px 0 10px;
       font-size:22px;
-      letter-spacing:-0.2px;
+      line-height:1.25;
     }
-    .article p{
-      color:rgba(245,247,255,0.86);
-      font-size:16.2px;
-      margin-bottom:14px;
-    }
+    p{ margin:14px 0; }
 
-    /* Table */
-    .table-wrap{
-      margin-top:16px;
-      overflow:auto;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,0.12);
-    }
-    table{
-      width:100%;
-      border-collapse:collapse;
-      min-width:880px;
-      background:rgba(255,255,255,0.04);
-    }
-    th,td{
-      padding:16px;
-      border-bottom:1px solid rgba(255,255,255,0.10);
-      text-align:left;
-    }
-    th{
-      background:rgba(255,255,255,0.06);
-      text-transform:uppercase;
-      letter-spacing:0.6px;
-      font-size:12.5px;
-      color:rgba(245,247,255,0.82);
-      font-weight:900;
-    }
-    td{
+    a{
+      color:#fff;
       font-weight:600;
-      color:rgba(245,247,255,0.88);
-      font-size:15.6px;
+      text-decoration:none;
+      border-bottom:2px solid rgba(34,197,94,0.70);
+      transition:.2s ease;
     }
-    tr:hover td{ background:rgba(255,255,255,0.06); }
+    a:hover{
+      border-bottom-color:rgba(96,165,250,0.85);
+    }
 
-    /* Sidebar */
-    .sidebar{
-      position:sticky;
-      top:92px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-    .side-card{
-      background:rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.12);
+    .callout{
+      margin:26px 0;
+      padding:18px 20px;
       border-radius:18px;
-      padding:16px;
-      box-shadow:0 18px 40px rgba(0,0,0,0.35);
+      background:rgba(34,197,94,0.12);
+      border:1px solid rgba(34,197,94,0.35);
     }
-    .side-card h3{
-      font-size:16px;
-      margin-bottom:10px;
-      letter-spacing:-0.2px;
-    }
-    .side-card p{
-      color:rgba(245,247,255,0.75);
-      font-size:14px;
-      line-height:1.7;
-    }
-    .pill{
-      display:inline-flex;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.14);
-      background:rgba(255,255,255,0.06);
-      margin:6px 6px 0 0;
-      font-weight:900;
-      font-size:12.5px;
-      color:rgba(245,247,255,0.86);
+    .callout b{ display:block; margin-bottom:6px; }
+
+    .mid-ref{
+      margin:30px 0;
+      padding:18px 20px;
+      border-radius:18px;
+      background:rgba(96,165,250,0.12);
+      border:1px solid rgba(96,165,250,0.35);
+      color:var(--muted);
     }
 
     footer{
-      border-top:1px solid rgba(255,255,255,0.10);
-      padding:26px 16px;
+      margin-top:22px;
       text-align:center;
-      color:rgba(245,247,255,0.62);
-      background:rgba(7,10,18,0.65);
-    }
-
-    @media(max-width:1050px){
-      .hero-inner{grid-template-columns:1fr}
-      .content{grid-template-columns:1fr}
-      .sidebar{position:relative;top:0}
+      color:var(--muted);
+      font-size:13px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.035);
+      border-radius:var(--radius);
+      padding:14px 16px;
     }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-  <!-- NAV -->
-  <div class="nav">
-    <div class="nav-inner">
-      <div class="logo"><span class="spark"></span> Wordle Italiano</div>
-      <div class="nav-links">
-        <a href="#regole">Regole</a>
-        <a href="#strategie">Strategie</a>
-        <a href="#tabella">Colori</a>
-        <a href="#errori">Errori</a>
-        <a href="#finale">Conclusione</a>
+    <div class="topbar">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Italian Word Puzzle Guide</span>
       </div>
+      <div class="meta">Daily Challenge • Language Learning • Clean UI</div>
     </div>
+
+    <main class="card">
+      <div class="content">
+
+        <h1>Wordle Italiano – Refined Word Puzzle Experience for Learning Italian</h1>
+
+        <p>
+          <a href="https://mywordle.net/wordle-italiano/" target="_blank" rel="nofollow noopener">wordle italiano</a>
+          is a localized version of the globally popular word puzzle game Wordle, adapted specifically for the Italian language.
+          While the original Wordle focuses on English vocabulary, Wordle Italiano offers Italian speakers and language learners a chance
+          to enjoy the same addictive gameplay while improving their understanding of Italian words. This version has become increasingly
+          popular among native speakers, students, and anyone interested in learning or practicing Italian in a fun and interactive way.
+        </p>
+
+        <p>
+          Wordle Italiano combines entertainment with education, turning vocabulary building into a daily mental challenge rather than a traditional learning task.
+        </p>
+
+        <h2>What Is Wordle Italiano?</h2>
+        <p>
+          Wordle Italiano is a word-guessing game where players attempt to identify a hidden Italian word within a limited number of attempts.
+          Each guess provides visual feedback using color-coded tiles that indicate whether letters are correct, misplaced, or not part of the word at all.
+          This feedback system encourages logical thinking and helps players refine their guesses step by step.
+        </p>
+
+        <p>
+          The game usually follows the same daily puzzle format as the original Wordle, meaning all players receive the same word each day.
+          This shared experience adds a social element to the game, as players can compare results and discuss strategies.
+        </p>
+
+        <h2>How Wordle Italiano Works</h2>
+        <p>
+          The gameplay mechanics of Wordle Italiano are simple but intellectually engaging. Players enter a valid Italian word as their guess.
+          After submitting the word, the game highlights letters using different colors. Letters in the correct position are marked clearly,
+          while letters that exist in the word but are placed incorrectly receive a different indicator. Incorrect letters are also shown,
+          helping players eliminate possibilities.
+        </p>
+
+        <p>
+          This process continues until the player either guesses the word correctly or runs out of attempts. The limited number of tries
+          makes each decision meaningful and encourages careful analysis.
+        </p>
+
+        <h2>Why Wordle Italiano Is So Popular</h2>
+        <p>
+          One of the biggest reasons for the popularity of Wordle Italiano is its accessibility. The game can usually be played directly in a web browser
+          without downloads, registrations, or payments. This ease of access makes it appealing to a wide audience.
+        </p>
+
+        <p>
+          Another key factor is its educational value. Unlike traditional language-learning tools, Wordle Italiano feels like a game rather than a lesson.
+          Players naturally improve spelling, vocabulary, and word recognition simply by playing regularly. This makes learning Italian more enjoyable and less stressful.
+        </p>
+
+        <h2>Educational Benefits of Wordle Italiano</h2>
+        <p>
+          Wordle Italiano offers several cognitive and educational benefits. Regular gameplay helps improve vocabulary, reinforces spelling accuracy,
+          and strengthens pattern recognition. Players begin to notice common letter combinations, verb endings, and word structures used in Italian.
+        </p>
+
+        <p>
+          For language learners, Wordle Italiano provides exposure to real, commonly used Italian words. This repeated exposure helps with memorization and understanding,
+          especially when combined with curiosity about word meanings after the puzzle is solved.
+        </p>
+
+        <h2>Wordle Italiano for Italian Learners</h2>
+        <p>
+          For students learning Italian as a second language, Wordle Italiano can be a powerful supplementary tool. It encourages active thinking rather than passive memorization.
+          Players must recall words, test hypotheses, and learn from mistakes, which leads to deeper language retention.
+        </p>
+
+        <p>
+          The daily nature of the game also promotes consistency. Even a few minutes a day can contribute to long-term language improvement,
+          making Wordle Italiano ideal for busy learners.
+        </p>
+
+        <h2>Comparison with English Wordle</h2>
+        <p>
+          While the core gameplay remains the same, Wordle Italiano presents unique challenges due to the structure of the Italian language.
+          Italian words often include vowel-rich patterns, gendered endings, and verb conjugations, which influence guessing strategies.
+          This linguistic difference makes Wordle Italiano feel fresh even for players familiar with the English version.
+        </p>
+
+        <p>
+          Players who already enjoy Wordle often find Wordle Italiano more challenging and rewarding, especially if they are passionate about languages.
+        </p>
+
+        <h2>User Experience and Interface Design</h2>
+        <p>
+          Wordle Italiano typically maintains a clean and minimal interface similar to the original Wordle.
+          The design focuses on clarity and usability, ensuring that players can concentrate on solving the puzzle without distractions.
+          The keyboard layout and visual feedback are intuitive, making the game accessible to users of all ages.
+        </p>
+
+        <p>
+          This simplicity contributes significantly to its appeal, as players can jump straight into the game without learning complex rules.
+        </p>
+
+        <!-- ✅ SECOND LINK (MID CONTENT) -->
+        <div class="mid-ref">
+          For another reference option and related resources, you can also explore
+          <a href="http://wordle-italiano.s3-website.eu-central-1.amazonaws.com" target="_blank" rel="nofollow noopener">
+            this Wordle Italiano resource
+          </a>
+          to learn more about the Italian daily puzzle experience.
+        </div>
+
+        <h2>Social Sharing and Community Engagement</h2>
+        <p>
+          Like the original Wordle, Wordle Italiano encourages social interaction. Many players enjoy sharing their results on social media or discussing strategies with friends and family.
+          Because everyone receives the same word each day, it creates a sense of community and friendly competition.
+        </p>
+
+        <p>
+          This shared experience adds another layer of enjoyment and helps maintain long-term interest in the game.
+        </p>
+
+        <h2>Accessibility Across Devices</h2>
+        <p>
+          Wordle Italiano is usually optimized for multiple devices, including smartphones, tablets, and desktop computers.
+          This flexibility allows players to enjoy the game anytime and anywhere, whether during a break, commute, or leisure time at home.
+        </p>
+
+        <p>
+          Because it does not require installation, it is especially convenient for casual users.
+        </p>
+
+        <h2>Is Wordle Italiano Safe to Play?</h2>
+        <p>
+          Wordle Italiano is generally safe to play, particularly when accessed through reputable websites.
+          Since it does not require personal information or downloads, it presents minimal risk.
+          Players should still ensure they are using trusted sources to avoid misleading copies or excessive advertisements.
+        </p>
+
+        <h2>Who Should Play Wordle Italiano?</h2>
+        <p>
+          Wordle Italiano is ideal for native Italian speakers who enjoy word puzzles, as well as learners who want to strengthen their language skills in a fun way.
+          It is suitable for students, professionals, and anyone who enjoys mental challenges and daily routines.
+        </p>
+
+        <p>
+          Both beginners and advanced speakers can benefit, as the game naturally adapts to the player’s knowledge level.
+        </p>
+
+        <h2>The Future of Wordle Italiano</h2>
+        <p>
+          As interest in language-based games continues to grow, Wordle Italiano is likely to remain popular.
+          The combination of simplicity, challenge, and educational value gives it lasting appeal.
+          With potential expansions, such as unlimited modes or adjustable word lengths, Wordle Italiano could evolve further while maintaining its core charm.
+        </p>
+
+        <h2>Conclusion</h2>
+        <p>
+          Wordle Italiano successfully transforms language learning into an enjoyable daily activity.
+          By combining logic, vocabulary, and fun gameplay, it offers a unique experience that appeals to both puzzle lovers and language learners.
+          Its clean design, educational benefits, and social elements make it a standout choice among word games.
+        </p>
+
+        <p>
+          For anyone looking to improve their Italian skills or simply enjoy a smart and engaging puzzle, Wordle Italiano is an excellent option
+          that proves learning can be both effective and entertaining.
+        </p>
+
+      </div>
+    </main>
+
+    <footer>
+      © <span id="yr"></span> • Full Width • Modern UI/UX • Word Puzzle Guide
+    </footer>
+
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-
-      <div class="hero-left">
-        <div class="tag"><i></i> Guida Premium • Strategie • Tecniche Avanzate</div>
-        <h1>Wordle Italiano: Guida Completa per Vincere Ogni Giorno</h1>
-
-        <!-- ✅ Link richiesto nel paragrafo introduttivo -->
-        <p class="lead">
-          Wordle Italiano è diventato uno dei giochi di parole più popolari per chi ama le sfide rapide ma intelligenti.
-          Se vuoi giocare nella tua lingua e migliorare davvero, prova
-          <a class="text-link" href="https://mywordle.net/wordle-italiano/" target="_blank" rel="noopener">wordle italiano</a>
-          e applica le strategie qui sotto per vincere ogni giorno senza rovinarti il divertimento.
-        </p>
-      </div>
-
-      <div class="hero-right">
-        <div class="stat">
-          <h3>Perché Funziona</h3>
-          <p>Allenamento mentale quotidiano: logica, vocabolario e riconoscimento di pattern.</p>
-        </div>
-        <div class="stat">
-          <h3>Obiettivo</h3>
-          <p>Non indovinare subito: raccogli informazioni, interpreta colori e restringi le opzioni.</p>
-        </div>
-        <div class="stat">
-          <h3>Risultato</h3>
-          <p>Meno tentativi sprecati, più vittorie e progressi reali nel tempo.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTENT -->
-  <section class="content">
-    <article class="article">
-
-      <p>
-        Molti utenti cercano Wordle Italiano per giocare nella loro lingua, capire le regole e migliorare la performance.
-        Questa guida ti mostra strategie reali, errori comuni e tecniche avanzate per aumentare le possibilità di vincere ogni giorno.
-      </p>
-
-      <h2 id="regole">Come Funziona Wordle Italiano: Regole Spiegate in Modo Semplice</h2>
-      <p>
-        Devi indovinare una parola composta da un numero fisso di lettere (spesso 5) con un massimo di tentativi (di solito 6).
-        Ogni tentativo ti dà un feedback con colori: lettera giusta e posizione giusta, giusta ma posizione sbagliata, oppure assente.
-        Wordle Italiano richiede quindi competenze linguistiche e una mentalità da puzzle solver.
-      </p>
-
-      <h2>Perché Wordle in Italiano è Diverso dalla Versione Inglese</h2>
-      <p>
-        L’italiano ha molte vocali e combinazioni tipiche come “CH”, “GL”, “GN”, “SC”.
-        Inoltre, terminazioni e schemi ricorrenti rendono il gioco più “pattern-based”: riconoscere questi modelli accelera la soluzione.
-      </p>
-
-      <h2 id="strategie">Strategia Base: La Prima Parola Decide Tutto</h2>
-      <p>
-        La prima parola è quasi metà della vittoria. Una scelta strategica ti permette di identificare vocali e consonanti frequenti.
-        Il secondo tentativo deve completare l’analisi con lettere non provate, così dal terzo tentativo hai un quadro molto chiaro.
-      </p>
-
-      <h2 id="tabella">Tabella: Significato dei Colori in Wordle Italiano</h2>
-      <p>
-        Interpretare i colori è il cuore del gioco. Questa tabella ti aiuta a leggere il feedback in modo corretto e immediato.
-      </p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Colore / Feedback</th>
-              <th>Significato</th>
-              <th>Cosa Fare Subito</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Verde</strong></td>
-              <td>Lettera corretta e posizione corretta</td>
-              <td>Mantienila fissa e costruisci intorno</td>
-            </tr>
-            <tr>
-              <td><strong>Giallo</strong></td>
-              <td>Lettera presente ma posizione sbagliata</td>
-              <td>Spostala in un’altra posizione</td>
-            </tr>
-            <tr>
-              <td><strong>Grigio</strong></td>
-              <td>Lettera non presente nella parola</td>
-              <td>Eliminala dalle ipotesi future</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2>Tecniche Avanzate: Come Ragionano i Giocatori Bravi</h2>
-      <p>
-        I giocatori più forti riducono le possibilità in modo intelligente: ogni parola inserita serve a eliminare ipotesi precise.
-        Pensare per famiglie di parole e terminazioni ti aiuta a restringere rapidamente il campo.
-      </p>
-
-      <h2 id="errori">Lista in Stile Paragrafo: Errori Comuni da Evitare</h2>
-      <p>
-        Molti utenti perdono perché riutilizzano lettere grigie, ignorano lettere gialle, scelgono parole troppo specifiche troppo presto,
-        dimenticano le doppie o si fissano su una soluzione anche quando i colori dimostrano che è sbagliata.
-      </p>
-
-      <h2>Come Migliorare Ogni Giorno Senza Imbrogliare</h2>
-      <p>
-        Wordle Italiano ti allena ogni giorno. Sviluppa una routine: prima parola forte, seconda parola per coprire nuove lettere,
-        poi dal terzo tentativo costruisci con precisione. Ampliare il vocabolario e riconoscere combinazioni tipiche accelera la tua crescita.
-      </p>
-
-      <h2>Wordle Italiano e il Vantaggio della Lingua: Vocali e Pattern</h2>
-      <p>
-        Identificare le vocali entro i primi due tentativi è spesso la chiave. Con tre vocali corrette, la parola diventa quasi visibile.
-        Combina vocali e consonanti comuni per semplificare la partita e ridurre gli errori.
-      </p>
-
-      <h2 id="finale">Conclusione</h2>
-      <p>
-        Wordle Italiano è una palestra mentale: migliora linguaggio, logica e capacità di analisi in pochi minuti al giorno.
-        Con le strategie giuste puoi aumentare le vittorie senza rovinarti il divertimento.
-        La chiave è semplice: usa la prima parola per raccogliere dati, interpreta i colori correttamente e costruisci soluzioni con calma.
-      </p>
-
-    </article>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="side-card">
-        <h3>Mini Checklist Giornaliera</h3>
-        <p>1ª parola ricca di vocali • 2ª parola per confermare • gialle da riposizionare • grigie da eliminare • attenzione alle doppie.</p>
-        <div>
-          <span class="pill">Vocali</span>
-          <span class="pill">Pattern</span>
-          <span class="pill">Doppie</span>
-          <span class="pill">Logica</span>
-          <span class="pill">Routine</span>
-        </div>
-      </div>
-
-      <div class="side-card">
-        <h3>Consiglio Pro</h3>
-        <p>Non cercare la parola “più bella”: cerca quella che elimina più possibilità con un solo tentativo.</p>
-      </div>
-
-      <div class="side-card">
-        <h3>Errore da Evitare</h3>
-        <p>Una lettera gialla è giusta: cambia posizione, non ripetere la stessa struttura.</p>
-      </div>
-    </aside>
-
-  </section>
-
-  <footer>
-    © 2026 • Wordle Italiano • Guida Professionale • UI/UX Premium
-  </footer>
-
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
